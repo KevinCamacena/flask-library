@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+header h1 {
+    text-align: center;
+}
+main {
+    margin: 0 auto;
+    max-width: 600px;
+}
+a {
+    margin-right: 10px;
+}
+form {
+    display: inline;
+}
+
