@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>My Personal Library</h1>
+    <a href="{{ url_for('main.add_book') }}" class="btn btn-primary my-3">Add New Book</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Publication Year</th>
+                <th>ISBN</th>
+                <th>Genre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="book-list">
+            {% for book in books %}
+            <tr id="book-{{ book.id }}">
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.publisher }}</td>
+                <td>{{ book.publication_year }}</td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.genre }}</td>
+                <td>
+                    <a href="{{ url_for('main.edit_book', id=book.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ url_for('main.delete_book', id=book.id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this book?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">No books found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    var socket = io();
+    socket.on('book_deleted', function(data) {
+        var row = document.getElementById('book-' + data.id);
+        if (row) {
+            row.parentNode.removeChild(row);
+        }
+    });
+</script>
+{% endblock %}

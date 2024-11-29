@@ -1,0 +1,108 @@
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <!-- Title Field -->
+    <div class="mb-3">
+        {{ form.title.label(class="form-label") }}
+        {{ form.title(class="form-control") }}
+        {% for error in form.title.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Author Field -->
+    <div class="mb-3">
+        {{ form.author.label(class="form-label") }}
+        {{ form.author(class="form-control") }}
+        {% for error in form.author.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Publisher Field -->
+    <div class="mb-3">
+        {{ form.publisher.label(class="form-label") }}
+        {{ form.publisher(class="form-control") }}
+        {% for error in form.publisher.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Publication Year Field -->
+    <div class="mb-3">
+        {{ form.publication_year.label(class="form-label") }}
+        {{ form.publication_year(class="form-control") }}
+        {% for error in form.publication_year.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- ISBN Field -->
+    <div class="mb-3">
+        {{ form.isbn.label(class="form-label") }}
+        {{ form.isbn(class="form-control") }}
+        {% for error in form.isbn.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Genre Field -->
+    <div class="mb-3">
+        {{ form.genre.label(class="form-label") }}
+        {{ form.genre(class="form-control") }}
+        {% for error in form.genre.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Language Field -->
+    <div class="mb-3">
+        {{ form.language.label(class="form-label") }}
+        {{ form.language(class="form-control") }}
+        {% for error in form.language.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Page Count Field -->
+    <div class="mb-3">
+        {{ form.page_count.label(class="form-label") }}
+        {{ form.page_count(class="form-control") }}
+        {% for error in form.page_count.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Edition Field -->
+    <div class="mb-3">
+        {{ form.edition.label(class="form-label") }}
+        {{ form.edition(class="form-control") }}
+        {% for error in form.edition.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Format Field -->
+    <div class="mb-3">
+        {{ form.format.label(class="form-label") }}
+        {{ form.format(class="form-control") }}
+        {% for error in form.format.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Description Field -->
+    <div class="mb-3">
+        {{ form.description.label(class="form-label") }}
+        {{ form.description(class="form-control") }}
+        {% for error in form.description.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Availability Status Field -->
+    <div class="mb-3">
+        {{ form.availability_status.label(class="form-label") }}
+        {{ form.availability_status(class="form-control") }}
+        {% for error in form.availability_status.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <!-- Tags Field -->
+    <div class="mb-3">
+        {{ form.tags.label(class="form-label") }}
+        {{ form.tags(class="form-control") }}
+        {% for error in form.tags.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+</form>
